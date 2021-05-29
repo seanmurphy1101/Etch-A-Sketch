@@ -3,26 +3,41 @@
     --grid-rows: 1;
   }
   
-  #container {
-    display: grid;
-    grid-gap: 0em;
-    grid-template-rows: repeat(var(--grid-rows), 0fr);
-    grid-template-columns: repeat(var(--grid-cols), 0fr);
-    margin: 0px 0px 0px 0px;;
-    height: 800px;
-    width: 1000px;
-  }
+ 
   .center{
     display: block;
     margin: auto;
   }
-  
-  .grid-item {
-    padding: 1em;
-    border: 1px solid #ddd;
+  body{
     text-align: center;
+  }
+  #container {
+    display: grid;
+    max-width: 500px;
+    min-height: 500px;
+    margin: 2rem auto;
+    border: 2px solid white;
+  }
+  .grid-item {
+    border: 1px solid black;
+    background-color: white;
+  }
+  header{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+  }
+  .buttons{
     
-
+  }
+  @media (max-width: 450px) {
+    header {
+      font-size: 2.4rem;
+    }
+  
+    #container{
+      max-width: 300px;
+      min-height: 300px;
+    }
   }
   
   

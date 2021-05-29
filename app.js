@@ -1,32 +1,23 @@
 
- let size = 40;
-let storage = 0;
-window.addEventListener('load', function(){  let container = document.getElementById("container")
-    createGrid(size, container);
-    storage = container;
-    container.style.setProperty('--grid-rows', size);
-    container.style.setProperty('--grid-cols', size);
-    return container;
+let size = 16;
+let container = document.getElementById("container");
+// create an event listener to determine if the ROM has been loaded before accessing the container, within the callback function, call createGrid
+// and set row and col properties
+window.addEventListener('load', function(){  
+    createGrid(size);
 });
-console.log(storage);
 
-
-let grids=undefined;
-function resetBoard(size){ 
-    grids = document.querySelectorAll("div.grid-item")
-    console.log(grids[0]);
-    grids.forEach(e => e.style.backgroundColor="white");
+// function which changes the background of all div elements with class grid-item to white
+// resetBoard(): Void
+function resetBoard(){ 
+    document.querySelectorAll("div.grid-item").forEach(e => e.style.backgroundColor="white");
 }
-
-
-let button = document.querySelector("button");
-console.log(button);
-
 
 // Function which takes x,a size, and container, an element, and creates a x by x grid in that element
 // createGrid(x: Number, container: Element): Void
-function createGrid(x, container){
-    if (x>100){
+function createGrid(x){
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    if (x>60){
         console.log("Too many pixels");
     }
     console.log(container);
@@ -38,6 +29,35 @@ function createGrid(x, container){
     }
 }
 
+function newBoard(){
+    size = prompt("enter a size");
+    size = parseInt(size);
+    if (size === ""){
+        newBoard();
+    }
+    clearBoard();
+    createGrid(size);
+
+}
+
+function clearBoard(){
+    let grids = Array.from(container.childNodes);
+    grids.forEach(element => {
+        container.removeChild(element);
+    });
+    
+}
+
+function randomPattern(){
+    let grids = Array.from(container.childNodes);
+    grids.forEach(element => {
+        let res = Math.floor(Math.random()*2);
+        if (element.style === undefined){
+            return;
+        }
+        element.style.backgroundColor = res === 0 ? "white" : "black";
+    });
+}
 
 
 

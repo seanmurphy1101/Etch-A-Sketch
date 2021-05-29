@@ -5,15 +5,25 @@
         <meta charset="UTF-8">
         <title>Etch-A-Sketch</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script type="text/javascript" src="app.js" async></script>
     </head>
     <body>
-        <button class="center" onclick="resetBoard(16)">
+        <header>Etch-A-Sketch</header>
+        <div class="buttons">
+        <button class="center" onclick="resetBoard()">
             Reset Board
         </button>
+        <button onclick="newBoard()">
+            New Board
+        </button>
+        <button onclick="randomPattern();">
+            Random Pattern
+        </button>
+        </div>
+        <div class="box">
         <div id="container">
 
         </div>
-
+        </div>
+        <script type="text/javascript" src="app.js"></script>
     </body>
 </html>
