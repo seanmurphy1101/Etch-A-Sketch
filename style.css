@@ -24,13 +24,5 @@
     
 
   }
-  .hover:hover::before{
-    background-color: white;
-    border-color: white;
-  }
-  .hover:hover::after{
-    background-color: black;
-    border-color: black;
-
-  }
+  
   
