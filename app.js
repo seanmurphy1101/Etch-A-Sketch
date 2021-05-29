@@ -1,8 +1,7 @@
-
+// size is 16 by defualt, however this can be changed on creation of a newBoard
 let size = 16;
 let container = document.getElementById("container");
-// create an event listener to determine if the ROM has been loaded before accessing the container, within the callback function, call createGrid
-// and set row and col properties
+// create an event listener to determine if the ROM has been loaded before accessing the container
 window.addEventListener('load', function(){  
     createGrid(size);
 });
@@ -29,6 +28,8 @@ function createGrid(x){
     }
 }
 
+// function which prompts the user for a new size, clears the board, and then creates a new grid of the given size
+// newBoard(): Void
 function newBoard(){
     size = prompt("enter a size");
     size = parseInt(size);
@@ -40,14 +41,17 @@ function newBoard(){
 
 }
 
+// function which removes all div elements inside the container
+// clearBoard(): Void
 function clearBoard(){
     let grids = Array.from(container.childNodes);
     grids.forEach(element => {
         container.removeChild(element);
     });
-    
 }
 
+// function which iterates over grids, and gives a 50% chance of the background color of each grid being white or black
+// randomPattern(): Void
 function randomPattern(){
     let grids = Array.from(container.childNodes);
     grids.forEach(element => {
