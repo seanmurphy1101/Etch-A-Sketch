@@ -14,14 +14,14 @@ console.log(storage);
 let grids=undefined;
 function resetBoard(size){ 
     grids = document.querySelectorAll("div.grid-item")
-    while (grids[0]) {
-        grids[0].parentNode.removeChild(grids[0]);
-    }
-    createGrid(size, storage);
+    console.log(grids[0]);
+    grids.forEach(e => e.style.backgroundColor="white");
 }
 
-let button = document.getElementsByTagName("button");
-button.addEventListener("onclick", resetBoard(16));
+
+let button = document.querySelector("button");
+console.log(button);
+
 
 // Function which takes x,a size, and container, an element, and creates a x by x grid in that element
 // createGrid(x: Number, container: Element): Void
